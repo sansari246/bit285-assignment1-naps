@@ -29,6 +29,10 @@
     <Content Remove="Views\_Layout.cshtml" />
     <Content Remove="Views\Index.cshtml" />
     <Content Remove="Shared\_Layout.cshtml" />
+    <Content Remove="Views\confirm-account.cshtml" />
+    <Content Remove="Views\login.cshtml" />
+    <Content Remove="Views\password-info.cshtml" />
+    <Content Remove="Views\select-password.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\login.html" />
