@@ -3,32 +3,122 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-
+using bit285_assignment1_naps.Models;
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace bit285assignment1naps.Controllers
+namespace bit285_assignment1_naps.Controllers
 {
     public class NapsController : Controller
     {
         // GET: /<controller>/
 
 
+
+        /// Accounts the info page 
+
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult AccountInfo()
         {
             return View();
         }
 
 
+        [HttpPost]
+        public IActionResult AccountInfo(User user) 
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("PasswordInfo",user);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+
+        //password info 
+        [HttpGet]
+        public IActionResult PasswordInfo(User user)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult PasswordInfo(User user, string info)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("PasswordSuggestion", User);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        //password Sugegestion
+        [HttpGet]
+        public IActionResult PasswordSuggestion(User info)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult PasswordSuggestion(User user, User info )
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("ConfirmAccount", User);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        // account confirmation
+
+        [HttpGet]
+        public IActionResult ConfirmAccount(User user)
+        {
+            return View(User);
+        }
+
+        [HttpPost]
+        public IActionResult ConfirmAccount(User user, string info)
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("login", User);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        //Login
+
+        [HttpGet]
+        public IActionResult login(User user)
+        {
+            return View(user);
+        }
+
         //[HttpPost]
-        //public IActionResult Index()
+        //public IActionResult login(User user, string info)
         //{
-        //    //Spin spin = new Spin();
-        //    //spin.Luck = player.Lucky;
-        //    //return RedirectToAction("SpinIt", spin);
-
-        //    return View();
-
+        //    if (ModelState.IsValid)
+        //    {
+        //        return RedirectToAction("login", User);
+        //    }
+        //    else
+        //    {
+        //        return View();
+        //    }
         //}
+
+
     }
 }
