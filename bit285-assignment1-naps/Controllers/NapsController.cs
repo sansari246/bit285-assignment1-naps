@@ -45,11 +45,11 @@ namespace bit285_assignment1_naps.Controllers
         [HttpGet]
         public IActionResult PasswordInfo(User user)
         {
-            return View(user);
+            return View();
         }
 
         [HttpPost]
-        public IActionResult PasswordInfo(User user, string ss)
+        public IActionResult PasswordInfo(User user, string info)
         {
             if (ModelState.IsValid)
             {
