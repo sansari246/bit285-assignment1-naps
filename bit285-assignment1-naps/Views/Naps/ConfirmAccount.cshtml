@@ -1,36 +1,36 @@
-﻿@model bit285_assignment1_naps.Models.User
-@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@model bit285_assignment1_naps.Models.User
 @{
     Layout = "_Layout";
     ViewBag.title = "Account Confirmation";
 }
 
-
-    <h1>New Account Created</h1>
-    <fieldset>
-        <form>
-            <div>
-                <label>FirstName</label>
-                <span>Brian</span>
-            </div>
-            <div>
-                <label>Last Name</label>
-                <span>Bansenauer</span>
-            </div>            <div>
-                <label>Program</label>
-                <span>Web App Dev</span>
-            </div>
-            <div>
-                <label>Username</label>
-                <span>ian@home.com</span>
-            </div>
-            <div>
-                <label>Password</label>
-                <span>bl-blue-Bansenauer</span>
-            </div>
-            <div>
-                <input type="submit" @*onclick="location.href='/login.html';*@" value="Go to Login" />
-                <input type="button" value="Reset" />
-            </div>
-        </form>
-    </fieldset>
+<h1>New Account Created</h1>
+<fieldset>
+    <form asp-action="ConfirmAccount" method="post">
+        <div>
+            <label asp-for="FirstName">First Name </label>
+            <span>@Model.FirstName</span> 
+        </div>
+        <div>
+            <label asp-for="LastName">Last Name</label>
+            <span>@Model.LastName</span> 
+        </div>
+        <div>
+            <label asp-for="Program">Program</label>
+            <span>@Model.Program</span> 
+        </div>
+        <div>
+            <label asp-for="EmailAddress">Username</label>
+            <span>@Model.EmailAddress</span> 
+        </div>
+        <div>
+            <label asp-for="Password">Password</label>
+            <span>@Model.Password</span> 
+        </div>
+        <div>
+            <input type="submit"  value="Go to Login" />
+            <input type="button" value="Reset" />
+        </div>
+    </form>
+</fieldset>

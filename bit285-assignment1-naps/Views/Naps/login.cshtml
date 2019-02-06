@@ -1,27 +1,25 @@
-﻿@model bit285_assignment1_naps.Models.User
-@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
-
+﻿@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@model bit285_assignment1_naps.Models.User
 @{
     Layout = "_Layout";
     ViewBag.title = "Login Page";
 }
-
-    <h1>Login</h1>
-    <fieldset>
-        <form>
-            <div>
-                <label>Username</label>
-                <input value="ian@home.com" />
-                <span>* required</span>
-            </div>
-            <div>
-                <label>Password</label>
-                <input type="password" value="bl-blue-Bansenauer" />
-                <span>* required</span>
-            </div>
-            <div>
-                <input type="button" value="Login" />
-                <input type="button" value="Reset" />
-            </div>
-        </form>
-    </fieldset>
+<h1>Login</h1>
+<fieldset>
+    <form>
+        <div>
+            <label asp-for="EmailAddress">Username</label>
+            <input value=@Model.EmailAddress/>
+            <span>* required</span>
+        </div>
+        <div>
+            <label asp-for="Password">Password</label>
+            <input type="password" value=@Model.Password />
+            <span>* required</span>
+        </div>
+        <div>
+            <input type="submit" value="Login" />
+            <input type="button" value="Reset" />
+        </div>
+    </form>
+</fieldset>

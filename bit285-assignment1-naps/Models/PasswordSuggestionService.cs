@@ -13,8 +13,17 @@ namespace bit285_assignment1_naps.Models
 
         public string GeneratePassword(User user)
             {
-                return "";
+            Random rnd = new Random();
+            string[] info = new string[] {user.FirstName,user.LastName,user.Birthyear,user.FavoriteColor,user.Program };
+            int i= rnd.Next(0, info.Length-1);
 
+            int j = rnd.Next(0,info.Length-1);
+            while(i==j)
+                j = rnd.Next(0, info.Length - 1);
+            //string str = info[i];
+            //str = string.Concat(info[j]);
+            //return (str);
+            return info[i]+info[j];
             }
            
 

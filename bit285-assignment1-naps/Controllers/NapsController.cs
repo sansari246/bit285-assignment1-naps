@@ -12,7 +12,11 @@ namespace bit285_assignment1_naps.Controllers
     {
         // GET: /<controller>/
 
-
+                //[HttpGet]
+        //public string AccountInfo()
+        //{
+        //    return "Hello World";
+        //}
 
         /// Accounts the info page 
 
@@ -41,21 +45,38 @@ namespace bit285_assignment1_naps.Controllers
         [HttpGet]
         public IActionResult PasswordInfo(User user)
         {
-            return View();
+            return View(user);
         }
 
         [HttpPost]
-        public IActionResult PasswordInfo(User user, string info)
+        public IActionResult PasswordInfo(User user, string ss)
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction("PasswordSuggestion", User);
+                return RedirectToAction("SelectPassword", User);
             }
             else
             {
-                return View();
+                return View(user);
             }
         }
+
+        /// do we need select password get and post?
+
+        /// <returns>The suggestion.</returns>
+        /// <param name="info">Info.</param>
+        //[HttpGet]
+        //public IActionResult SelectPassword()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //public IActionResult SelectPassword(User user)
+        //{
+        //    user.Password = user.Password;
+        //    return RedirectToAction("ConfirmAccount", user);
+        //}
 
         //password Sugegestion
         [HttpGet]
@@ -82,11 +103,11 @@ namespace bit285_assignment1_naps.Controllers
         [HttpGet]
         public IActionResult ConfirmAccount(User user)
         {
-            return View(User);
+            return View(user);
         }
 
         [HttpPost]
-        public IActionResult ConfirmAccount(User user, string info)
+        public IActionResult ConfirmAccount(User user, string ss)
         {
             if (ModelState.IsValid)
             {
